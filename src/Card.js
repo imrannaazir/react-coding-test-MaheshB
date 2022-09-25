@@ -1,16 +1,28 @@
-import React from 'react';
-import { AiFillCaretUp, AiOutlineClose } from "react-icons/ai"
-import { AiFillCaretDown } from "react-icons/ai"
+import React, { useContext } from 'react';
+import { AiFillCaretUp, AiFillCaretDown } from "react-icons/ai"
+import { IoCloseSharp } from "react-icons/io5"
+import { MyContext } from './App';
 
-const Card = () => {
+const Card = ({ data }) => {
+    const [technologies, setData] = useContext(MyContext)
+    const handleDelete = id => {
+        // console.log(technologies);
+        // console.log(id);
+        const newData = technologies.filter((technology => technology.id !== id))
+        console.log(newData);
+        setData(newData)
+    }
     return (
         <div className='bg-[#e3e9ff] flex justify-between items-center w-80 p-3 rounded-md '>
-            <p>Nust.js</p>
+            <p className='font-bold'>{data.text}</p>
             {/* buttons */}
             <div className='flex gap-3'>
-                <AiFillCaretUp />
-                <AiFillCaretDown />
-                <AiOutlineClose />
+                {/* up  */}
+                <AiFillCaretUp className={`text-[#4711de] cursor-pointer`} />
+                {/* down */}
+                <AiFillCaretDown className={`text-[#4711de] cursor-pointer`} />
+                {/* delete */}
+                <IoCloseSharp onClick={() => handleDelete(data.id)} className={`text-red-500 font-bold cursor-pointer`} />
 
             </div>
         </div>
