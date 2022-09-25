@@ -1,20 +1,16 @@
-import React, { useContext } from 'react';
 import { AiFillCaretUp, AiFillCaretDown } from "react-icons/ai"
 import { IoCloseSharp } from "react-icons/io5"
-import { MyContext } from './App';
+
 
 const Card = ({ data }) => {
-    const [technologies, setData] = useContext(MyContext)
-    const handleDelete = id => {
-        // console.log(technologies);
-        // console.log(id);
-        const newData = technologies.filter((technology => technology.id !== id))
-        console.log(newData);
-        setData(newData)
+
+
+    const handleDelete = () => {
+
     }
     return (
         <div className='bg-[#e3e9ff] flex justify-between items-center w-80 p-3 rounded-md '>
-            <p className='font-bold'>{data.text}</p>
+            <p className='font-bold'>{data.note}</p>
             {/* buttons */}
             <div className='flex gap-3'>
                 {/* up  */}

@@ -16,6 +16,7 @@ const Input = () => {
         catch (err) {
             console.error("Error adding document: ", err);
         }
+        e.target.reset()
 
     }
     return (
